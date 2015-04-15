@@ -87,4 +87,5 @@ const byte auchCRCLo[] = {
 						0x40};
 
 boolean getBit(u8* area, int index);
+void setBit(u8* area, int index, bool value);
 #endif

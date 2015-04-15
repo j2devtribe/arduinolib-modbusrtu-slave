@@ -4,3 +4,4 @@ addWordArea	KEYWORD2
 addBitArea	KEYWORD2
 process	KEYWORD2
 getBit	KEYWORD2
+setBit	KEYWORD2

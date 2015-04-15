@@ -363,6 +363,12 @@ boolean getBit(u8* area, int index)
 	return bitRead(area[stidx], index%8);
 }
 
+void setBit(u8* area, int index, bool value)
+{
+	u16 stidx = index / 8;
+	bitWrite(area[stidx], index%8, value);
+}
+
 ModbusRTUSlaveBitAddress::ModbusRTUSlaveBitAddress(u16 Address, u8* value, int cnt)
 {
 	addr = Address;
