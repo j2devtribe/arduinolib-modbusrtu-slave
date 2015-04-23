@@ -226,6 +226,8 @@ void ModbusRTUSlave::process()
 								ret[6]=hi;
 								ret[7]=lo;
 								ser->write(ret, 8);
+
+								ResCnt=0;
 							}
 							else bvalid = false;
 						}
@@ -272,6 +274,8 @@ void ModbusRTUSlave::process()
 											ret[6]=hi;
 											ret[7]=lo;
 											ser->write(ret, 8);
+
+											ResCnt=0;
 										}
 									}
 								}
@@ -311,6 +315,8 @@ void ModbusRTUSlave::process()
 										ret[6]=hi;
 										ret[7]=lo;
 										ser->write(ret, 8);
+
+										ResCnt=0;
 									}
 								}
 								else bvalid=false;
@@ -324,7 +330,7 @@ void ModbusRTUSlave::process()
 		lastrecv = millis();
 	}
 	if(!bvalid && ResCnt>0) ResCnt=0;
-	if(ResCnt>0 && (millis()-lastrecv > 100 || millis() < lastrecv)) ResCnt=0;
+	if(ResCnt>0 && (millis()-lastrecv > 200 || millis() < lastrecv)) ResCnt=0;
 }
 /*
 void ModbusRTUSlave::getCRC(LinkedList<byte>* pby, int startindex, int nSize, byte* byFirstReturn, byte* bySecondReturn)
